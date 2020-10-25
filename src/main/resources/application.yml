@@ -1,0 +1,35 @@
+# Todo: Move all sensitive configurations (such as db / urls / passwords / etc) to a secure configuration manager
+# such as AWS's Secret-Manager, Cyberark's Vault, etc..
+
+spring:
+  profiles: default
+  datasource:
+    url: jdbc:postgresql://dbpostgresql:5432/mydb
+    username: postgres
+    password: postgres
+    initialization-mode: always
+    driverClassName: org.postgresql.Driver
+  jpa:
+    hibernate:
+        ddl-auto: create-drop
+
+logging:
+  level:
+    com:
+      intuit:
+        aggregations: debug
+
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+
+millis-in-an-hour: 3600000
+
+api:
+  target: https://fakebanky.herokuapp.com/transactions
+  interval: 1
+
+website:
+  target: https://fakebanky.herokuapp.com/fakebank
+  interval: 3
