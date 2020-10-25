@@ -11,10 +11,6 @@ Going forward, the purposed design in this implementation can be broken down to 
 4) DB storage can be replicated horizontally, and be Read-Only for all services (besides the persistence layer). 
 5) Traffic between these components can be synchronous with HTTP requests, or by async using queues.
 
-```shell script
-    curl --location --request GET 'http://localhost:8080/users/12'
-```
-
 ## APIs
 #### POST /users
 The method create/ update user's aggregation.
@@ -52,6 +48,10 @@ Headers: Content-Type=application/json
 - If the userId is not found, request will be aborted with NotFound status.
 - If the user is found, all corresponding data will be returned (sources, accounts, transactions).
          
+ ```shell script
+     curl --location --request GET 'http://localhost:8080/users/12'
+ ```
+
 
 ### Configuration
 Application configuration specified in `application.yml` file.
